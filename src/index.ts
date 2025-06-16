@@ -5,6 +5,7 @@ import express from "express";
 import { clerkMiddleware } from "@clerk/express";
 import cambioContraseña from "./routes/cambiarContraseña/correo";
 import modificarContraseña from "./routes/cambiarContraseña/modificar";
+import registrarUsuario from "./routes/usuarios/registro/registro";
 
 const app = express();
 
@@ -20,6 +21,7 @@ console.log("CLERK_SECRET_KEY:", process.env.CLERK_SECRET_KEY); // DEBUG
 
 app.use("/cambiarcontrasena", cambioContraseña);
 app.use("/modificarcontrasena", modificarContraseña);
+app.use("/registro", registrarUsuario);
 
 app.listen(3000, () => {
     console.log("Servidor corriendo en el puerto 3000");
